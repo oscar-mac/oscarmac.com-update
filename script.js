@@ -18,10 +18,10 @@ function startTime() {
 
 function setTime() {
     const y = 2023; // year
-    const m = 7; // month (zero-indexed)
-    const d = 27; // day
-    const h = 13; // hour (24 hr time)
-    const n = 13; // minute
+    const m = 8; // month (zero-indexed)
+    const d = 15; // day
+    const h = 17; // hour (24 hr time)
+    const n = 16; // minute
     const updated_at = new Date(y, m, d, h, n, 0);
     const today = new Date();
     const time_since = today - updated_at;
