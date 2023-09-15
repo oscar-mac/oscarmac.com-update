@@ -146,26 +146,29 @@ function setupUserActivityListeners() {
     setupUserActivityListeners();
 })();
 
-$(document).ready(function() {
-    // When hovering over a <li> element
-    $("ul li").hover(function() {
-        // Get the value of the data-img attribute
-        var imgSrc = $(this).data("img");
-        // Set the src attribute of the hover-image element
-        $("#hover-image").attr("src", imgSrc);
-        // Show the hover-image element
-        $("#hover-image").show();
-    }, function() {
-        // When the mouse leaves the <li> element, hide the hover-image
-        $("#hover-image").hide();
-    });
+ $(document).ready(function() {
+    // Cache the image container and hover image elements
+    var $imageContainer = $("#image-container");
+    var $hoverImage = $("#hover-image");
 
-    // Move the hover-image with the cursor
-    $("ul li").mousemove(function(event) {
-        // Calculate the position for the hover-image
-        var x = event.pageX;
-        var y = event.pageY - 300;
-        // Set the position of the hover-image
-        $("#hover-image").css({ top: y, left: x });
-    });
-});
+    // Check if the device supports touch events
+    var isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+
+    // Attach hover event handlers to the li-wrapper divs only if it's not a touch device
+    if (!isTouchDevice) {
+      $(".li-wrapper").hover(
+        function() { // Mouse enter event
+          // Get the data-img attribute value
+          var imgSrc = $(this).data("img");
+          // Set the src attribute of the hover image
+          $hoverImage.attr("src", imgSrc);
+          // Show the hover image container
+          $imageContainer.show();
+        },
+        function() { // Mouse leave event
+          // Hide the hover image container
+          $imageContainer.hide();
+        }
+      );
+    }
+  });
