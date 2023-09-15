@@ -1,0 +1,161 @@
+@font-face {
+    font-family: "Cirrus-Cumulus";
+    src: url('Cirrus-Cumulus/Cirrus-Cumulus.woff') format('woff'),
+    url('Cirrus-Cumulus/Cirrus-Cumulus.ttf') format('truetype');
+}
+@font-face {
+    font-family: "Gerstner-Programm";
+    src: url('Gerstner-Programm/Gerstner-ProgrammRegular.woff2') format('woff2'),
+        url('Gerstner-Programm/Gerstner-ProgrammRegular.woff') format('woff'),
+        url('Gerstner-Programm/Gerstner-ProgrammRegular.ttf') format('truetype');
+}
+
+html {
+    --blue: #0000ff;
+    --gray: #eeeeee;
+    --green: #00ff00;
+    --white: #ffffff;
+}
+
+body {
+    font-family: "Gerstner-Programm", arial, system-ui, sans-serif;
+    font-size: 21px;
+    background-color: var(--gray);
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    cursor: default;
+    overflow: hidden;
+    
+}
+
+/* table {
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding-left: 1.4em;
+    text-indent: -1.4em;
+}
+
+table .table-title {
+    margin-bottom: 0.100em;
+    cursor: crosshair;
+}
+
+table .table-title:before {
+    content: "﹡";
+    margin-right: 0.1em;
+} */
+
+.column-one ul {
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding-left: 1.4em;
+    text-indent: -1.4em;
+
+}
+
+.column-one li {
+    margin-bottom: 0.50em;
+    cursor: crosshair
+}
+
+.column-one li:before {
+    content: "﹡";
+    margin-right: 0.1em;
+  }
+
+.column-one {
+    max-width: 670px;
+    z-index: 0;
+    align-self: flex-start;
+}
+
+.column-one p {
+    /* font-family: "Gerstner-Programm", arial, system-ui, sans-serif;
+    font-size: 21px; */
+    letter-spacing: 0.03em;
+    line-height: 1.35;
+    margin-bottom: 1rem;
+}
+
+#font-small {
+    font-size: 14px;
+  }
+
+#clock-container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: default;
+
+}
+
+#clock-container #clock {
+    font-family: "Cirrus-Cumulus";
+    font-size: 22vw;
+    color: var(--blue);
+}
+
+::selection {
+    background-color: var(--white);
+}
+
+a:link, a:visited {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+a:hover, a:focus, a:active {
+    color: var(--green);
+}
+
+
+.job-title:hover, .city-name:hover {
+    background-color: var(--white);
+    cursor: pointer;
+  }
+
+@media only screen and (min-width: 576px) {
+    body {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    #clock-container {
+        transform: rotate(-90deg);
+    }
+    #clock-container #clock {
+        font-size: 40vw;
+    }
+}
+
+/* HOVER FEATURE */
+
+#image-container {
+    position: relative;
+  }
+  #hover-image {
+    position: absolute;
+    pointer-events: none;
+    height: 400px;
+  }
+
+/* Media query to disable hover effect on touch screens */
+@media (hover: none) {
+    #hover-image {
+        display: none;
+    }
+}
