@@ -18,10 +18,10 @@ function startTime() {
 
 function setTime() {
     const y = 2023; // year
-    const m = 8; // month (zero-indexed)
-    const d = 15; // day
-    const h = 17; // hour (24 hr time)
-    const n = 16; // minute
+    const m = 7; // month (zero-indexed)
+    const d = 27; // day
+    const h = 13; // hour (24 hr time)
+    const n = 13; // minute
     const updated_at = new Date(y, m, d, h, n, 0);
     const today = new Date();
     const time_since = today - updated_at;
@@ -41,11 +41,11 @@ function setTime() {
     else if (time_since < month_ms * 2) time_phrase = "month";
     else time_phrase = "months";
 
-    document.querySelector(".js-last-updated").innerText = `A ${time_phrase} ago`;
+    document.querySelector(".last-updated").innerText = `A ${time_phrase} ago`;
 }
 
 function setEmailCopy() {
-    const el = document.querySelector(".js-email-copy");
+    const el = document.querySelector(".email-copy");
 
     el.addEventListener("click", function (e) {
         e.preventDefault();
@@ -91,16 +91,12 @@ function setupRandomText() {
         "developer",
         "product designer",
         "human interface designer",
-        "mobile developer",
         "web developer",
         "front-end developer",
         "designer-developer",
     ];
 
-    const cityTitles = ["Melbourne,", "37.8136° S, 144.9631° E,"];
-
-    setRandomText(document.querySelector(".js-job-title"), jobTitles);
-    setRandomText(document.querySelector(".js-city-name"), cityTitles);
+    setRandomText(document.querySelector(".job-title"), jobTitles);
 }
 
 let inactiveTimeout;
@@ -147,25 +143,25 @@ function setupUserActivityListeners() {
 })();
 
 $(document).ready(function() {
-    // When hovering over a <li> element
-    $("ul li").hover(function() {
-        // Get the value of the data-img attribute
-        var imgSrc = $(this).data("img");
-        // Set the src attribute of the hover-image element
-        $("#hover-image").attr("src", imgSrc);
-        // Show the hover-image element
-        $("#hover-image").show();
+    // When hovering over a .li-item
+    $(".li-item").hover(function() {
+      // Get the value of the data-img attribute
+      var imgSrc = $(this).data("img");
+      // Set the src attribute of the hover-image element
+      $("#hover-image").attr("src", imgSrc);
+      // Show the hover-image element
+      $("#hover-image").show();
     }, function() {
-        // When the mouse leaves the <li> element, hide the hover-image
-        $("#hover-image").hide();
+      // When the mouse leaves the .li-item, hide the hover-image
+      $("#hover-image").hide();
     });
-
+  
     // Move the hover-image with the cursor
-    $("ul li").mousemove(function(event) {
-        // Calculate the position for the hover-image
-        var x = event.pageX;
-        var y = event.pageY - 300;
-        // Set the position of the hover-image
-        $("#hover-image").css({ top: y, left: x });
+    $(".li-item").mousemove(function(event) {
+      // Calculate the position for the hover-image
+      var x = event.pageX;
+      var y = event.pageY - 300;
+      // Set the position of the hover-image
+      $("#hover-image").css({ top: y, left: x });
     });
-});
+  });
