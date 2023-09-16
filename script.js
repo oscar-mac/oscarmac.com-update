@@ -116,7 +116,7 @@ function hideClockContainer() {
 
 function resetInactiveTimer() {
     clearTimeout(inactiveTimeout);
-    inactiveTimeout = setTimeout(showClockContainer, 7000); // 7 seconds (5000 milliseconds)
+    inactiveTimeout = setTimeout(showClockContainer, 9000); // 7 seconds (5000 milliseconds)
 }
 
 function setupUserActivityListeners() {
