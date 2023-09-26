@@ -37,7 +37,7 @@ body {
 
 .column-one .li-item {
     display: flex;
-    margin-bottom: 0.20em;
+    padding-bottom: 0.20em;
     letter-spacing: 0.03em;
     line-height: 1.30;
     cursor: pointer;
