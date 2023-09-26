@@ -89,9 +89,6 @@ function setupRandomText() {
         "designer",
         "technologist",
         "developer",
-        "product designer",
-        "human interface designer",
-        "web developer",
         "front-end developer",
         "designer-developer",
     ];
@@ -143,25 +140,32 @@ function setupUserActivityListeners() {
 })();
 
 $(document).ready(function() {
-    // When hovering over a .li-item
-    $(".li-item").hover(function() {
-      // Get the value of the data-img attribute
-      var imgSrc = $(this).data("img");
-      // Set the src attribute of the hover-image element
-      $("#hover-image").attr("src", imgSrc);
-      // Show the hover-image element
-      $("#hover-image").show();
-    }, function() {
-      // When the mouse leaves the .li-item, hide the hover-image
-      $("#hover-image").hide();
-    });
+    // Check if hover media query is supported
+    var supportsHover = window.matchMedia('(hover: hover)').matches;
   
-    // Move the hover-image with the cursor
-    $(".li-item").mousemove(function(event) {
-      // Calculate the position for the hover-image
-      var x = event.pageX;
-      var y = event.pageY - 300;
-      // Set the position of the hover-image
-      $("#hover-image").css({ top: y, left: x });
-    });
+    // If hover is supported, enable hover-related functionality
+    if (supportsHover) {
+      // When hovering over a .li-item
+      $(".li-item").hover(function() {
+        // Get the value of the data-img attribute
+        var imgSrc = $(this).data("img");
+        // Set the src attribute of the hover-image element
+        $("#hover-image").attr("src", imgSrc);
+        // Show the hover-image element
+        $("#hover-image").show();
+      }, function() {
+        // When the mouse leaves the .li-item, hide the hover-image
+        $("#hover-image").hide();
+      });
+  
+      // Move the hover-image with the cursor
+      $(".li-item").mousemove(function(event) {
+        // Calculate the position for the hover-image
+        var x = event.pageX + 20;
+        var y = event.pageY;
+        // Set the position of the hover-image
+        $("#hover-image").css({ top: y, left: x });
+      });
+    }
   });
+  

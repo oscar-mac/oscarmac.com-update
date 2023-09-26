@@ -122,14 +122,17 @@ a:active {
     }
 }
 
-/* HOVER FEATURE */
-
-#image-container {
-    position: relative;
+@media (hover: hover) {
+    #hover-image {
+        display: none;
+        position: absolute;
+        pointer-events: none;
+        height: 400px;
+    }
 }
 
-#hover-image {
-    position: absolute;
-    pointer-events: none;
-    height: 400px;
-}
+/* @media (hover: none) {
+    #hover-image {
+        display: none;
+    }
+} */
