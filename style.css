@@ -19,7 +19,7 @@ html {
 }
 
 body {
-    font-family: "Gerstner-Programm", arial, system-ui, sans-serif;
+    font-family: "Gerstner-Programm", Arial, system-ui, sans-serif;
     font-size: 21px;
     background-color: var(--gray);
     padding: 10px 15px;
@@ -29,18 +29,18 @@ body {
     flex-direction: column;
 }
 
-
 .column-one ul {
     margin-bottom: 1em;
     margin-top: 1em;
     padding-left: 1.4em;
-    text-indent: -1.4em;
-
 }
 
 .column-one .li-item {
-    padding-bottom: 0.50em;
+    margin-bottom: 0.20em;
+    letter-spacing: 0.03em;
+    line-height: 1.30;
     cursor: pointer;
+    margin-left: -1.4em; /* Adjust this value to match the padding-left above */
 }
 
 .column-one .li-item:before {
@@ -59,6 +59,7 @@ body {
     line-height: 1.35;
     margin-bottom: 1rem;
 }
+
 
 #last-updated-item {
     font-size: 14px;
@@ -130,9 +131,3 @@ a:active {
         height: 400px;
     }
 }
-
-/* @media (hover: none) {
-    #hover-image {
-        display: none;
-    }
-} */
